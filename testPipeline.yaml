@@ -8,7 +8,7 @@ pipeline:
     - stage:
         name: Security Testing
         identifier: Security_Testing
-        description: ""
+        description: "Adding a random description"
         type: SecurityTests
         spec:
           cloneCodebase: true
