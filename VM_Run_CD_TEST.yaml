@@ -1,7 +1,7 @@
 pipeline:
   name: VM RUN CD TEST
   identifier: VM_Run_CD_TEST
-  projectIdentifier: CSE_Lab_project
+  projectIdentifier: CSE_Lab_Project
   orgIdentifier: CSE_Labs
   tags: {}
   stages:
