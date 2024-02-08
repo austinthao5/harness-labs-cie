@@ -1,0 +1,44 @@
+pipeline:
+  name: VM RUN CD TEST
+  identifier: VM_Run_CD_TEST
+  projectIdentifier: CSE_Lab_project
+  orgIdentifier: CSE_Labs
+  tags: {}
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: VM
+            spec:
+              type: Pool
+              spec:
+                poolName: ubuntu-ci-pool
+                harnessImageConnectorRef: account.AT_Docker
+                os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run
+                  identifier: Run
+                  spec:
+                    connectorRef: account.harnessImage
+                    image: nikpap/mvn-openjdk-8:harness
+                    shell: Bash
+                    command: sleep 10000
+                    outputVariables:
+                      - name: hello
+          caching:
+            enabled: false
+            paths: []
+  properties:
+    ci:
+      codebase:
+        connectorRef: austinbbconnector
+        repoName: harness-pr-test
+        build: <+input>
