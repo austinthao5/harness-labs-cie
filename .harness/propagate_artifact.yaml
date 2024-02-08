@@ -1,0 +1,64 @@
+pipeline:
+  name: propagate_artifact
+  identifier: propagate_artifact
+  projectIdentifier: CSE_Lab_Project
+  orgIdentifier: CSE_Labs
+  tags: {}
+  stages:
+    - stage:
+        name: deploy
+        identifier: deploy
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: promsample
+          environments:
+            metadata:
+              parallel: true
+            values:
+              - environmentRef: csegcpcluster
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: austintestns
+              - environmentRef: austinsandbox
+                environmentInputs:
+                  identifier: austinsandbox
+                  type: PreProduction
+                  variables:
+                    - name: test_input
+                      type: String
+                      value: <+input>
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: austinsandbox
+              - environmentRef: not_really_prod
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: austintestns
+          execution:
+            steps:
+              - step:
+                  name: Rollout Deployment
+                  identifier: rolloutDeployment
+                  type: K8sRollingDeploy
+                  timeout: 10m
+                  spec:
+                    skipDryRun: false
+                    pruningEnabled: false
+            rollbackSteps:
+              - step:
+                  name: Rollback Rollout Deployment
+                  identifier: rollbackRolloutDeployment
+                  type: K8sRollingRollback
+                  timeout: 10m
+                  spec:
+                    pruningEnabled: false
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
