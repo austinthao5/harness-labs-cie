@@ -30,7 +30,9 @@ pipeline:
                     connectorRef: account.harnessImage
                     image: nikpap/mvn-openjdk-8:harness
                     shell: Bash
-                    command: sleep 10000
+                    command: |-
+                      sleep 10000
+                      ls
                     outputVariables:
                       - name: hello
           caching:
