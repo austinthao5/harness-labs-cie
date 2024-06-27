@@ -2,10 +2,10 @@ terraform {
   required_providers {
     harness = {
       source = "harness/harness"
+      version = "0.31.5"
     }
   }
 }
-
 variable "account_id" {
   description = "The ID of the account."
   type        = string
