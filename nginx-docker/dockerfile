@@ -4,5 +4,7 @@ FROM nginx:latest
 # Expose port 80 to allow incoming traffic
 EXPOSE 80
 
+COPY /app/test.txt ./app/test.txt
+
 # Start NGINX when the container starts
 CMD ["nginx", "-g", "daemon off;"]
