@@ -1,10 +1,24 @@
 # Use the official NGINX image as the base image
-FROM nginx:latest
+FROM nginx:latest as base
+
+ENV NODE_ENV production
+# Define the working directory
+WORKDIR /app
+# Use root user for initial setup
+USER root
+
+
 
 # Expose port 80 to allow incoming traffic
 EXPOSE 80
-WORKDIR /app
-COPY /app/test.txt ./app/test.txt
+
+FROM base AS dist
+COPY . .
+
+# Stage 2: Install dependencies
+FROM base AS dependencies
+# Copy only necessary files for installing dependencies
+COPY --from=dist /app/test.txt ./app/test.txt
 
 # Start NGINX when the container starts
 CMD ["nginx", "-g", "daemon off;"]
