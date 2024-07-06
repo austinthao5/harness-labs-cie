@@ -17,7 +17,7 @@ WORKDIR /app
 COPY . .
 
 # List files to debug
-RUN ls -la /app
+RUN ls -la /app/app
 
 # Stage 2: Install dependencies
 FROM base AS dependencies
