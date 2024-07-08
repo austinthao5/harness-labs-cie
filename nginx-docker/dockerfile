@@ -11,10 +11,6 @@ USER root
 # Expose port 80 to allow incoming traffic
 EXPOSE 80
 
-# List files to debug
-RUN echo "TESTING BEFORE STAGE 1"
-RUN ls -la /app
-
 # Stage 1: Build distribution
 FROM base AS dist
 RUN pwd
