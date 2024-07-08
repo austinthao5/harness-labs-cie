@@ -4,7 +4,9 @@ FROM nginx:latest as base
 # Set the environment to production
 ENV NODE_ENV production
 # Define the working directory
+RUN pwd
 WORKDIR /app
+RUN pwd
 # Use root user for initial setup
 USER root
 
@@ -17,7 +19,9 @@ RUN ls -la /app
 
 # Stage 1: Build distribution
 FROM base AS dist
+RUN pwd
 WORKDIR /app
+RUN pwd
 COPY . ./app
 
 # List files to debug
@@ -26,8 +30,9 @@ RUN ls -la /app
 
 # Stage 2: Install dependencies
 FROM base AS dependencies
+RUN pwd
 WORKDIR /app
-
+RUN pwd
 RUN echo "TESTING IN STAGE 2"
 RUN ls -la /app
 
