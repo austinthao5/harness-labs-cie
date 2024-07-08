@@ -18,7 +18,7 @@ RUN ls -la /app
 # Stage 1: Build distribution
 FROM base AS dist
 WORKDIR /app
-COPY . .
+COPY . ./app
 
 # List files to debug
 RUN echo "TESTING IN STAGE 1"
