@@ -13,15 +13,15 @@ EXPOSE 80
 
 # Stage 1: Build distribution
 FROM base AS dist
-RUN pwd
 COPY . .
+RUN ls -al
 
 # List files to debug
 RUN echo "TESTING IN STAGE 1"
 
 # Stage 2: Install dependencies
 FROM base AS dependencies
-
+RUN ls -al
 # Copy only necessary files for installing dependencies
 COPY --from=dist /app/test.txt ./test.txt
 
