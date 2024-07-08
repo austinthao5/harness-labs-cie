@@ -25,6 +25,7 @@ RUN ls -al
 # Copy only necessary files for installing dependencies
 COPY --from=dist /app/test.txt ./test.txt
 RUN ls -al
+RUN ls -al /kaniko/1/app
 
 # Start NGINX when the container starts
 CMD ["nginx", "-g", "daemon off;"]
