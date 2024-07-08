@@ -23,7 +23,6 @@ COPY . ./app
 # List files to debug
 RUN echo "TESTING IN STAGE 1"
 RUN ls -la /app
-RUN ls -la /app/app
 
 # Stage 2: Install dependencies
 FROM base AS dependencies
@@ -31,7 +30,6 @@ WORKDIR /app
 
 RUN echo "TESTING IN STAGE 2"
 RUN ls -la /app
-RUN ls -la /app/app
 
 # Copy only necessary files for installing dependencies
 COPY --from=dist /app/test.txt ./test.txt
