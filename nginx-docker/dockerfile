@@ -18,16 +18,12 @@ COPY . .
 
 # List files to debug
 RUN echo "TESTING IN STAGE 1"
-RUN ls -la /app
 
 # Stage 2: Install dependencies
 FROM base AS dependencies
 
 # Copy only necessary files for installing dependencies
 COPY --from=dist /app/test.txt ./test.txt
-
-# List files to debug
-RUN ls -la /app
 
 # Start NGINX when the container starts
 CMD ["nginx", "-g", "daemon off;"]
