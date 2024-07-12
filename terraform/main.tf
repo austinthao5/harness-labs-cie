@@ -9,13 +9,11 @@ terraform {
 variable "account_id" {
   description = "The ID of the account."
   type        = string
-  value       = "acc_id"
 }
 
 variable "PAT" {
   description = "The Platform API key."
   type        = string
-  value       = "PAT"
 }
 
 provider "harness" {
