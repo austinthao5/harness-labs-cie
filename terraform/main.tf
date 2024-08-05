@@ -20,3 +20,7 @@ output "example_field" {
 output "example_field2" {
   value = var.PAT
 }
+
+output "example_field3" {
+  value = var.TESTING
+}
