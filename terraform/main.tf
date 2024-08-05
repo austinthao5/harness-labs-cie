@@ -14,5 +14,5 @@ provider "harness" {
 }
 
 output "example_field" {
-  value = "testing"
+  value = "testing $var.PAT AND $var.account_id"
 }
