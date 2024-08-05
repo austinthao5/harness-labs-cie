@@ -7,3 +7,8 @@ variable "PAT" {
   description = "The Platform API key."
   type        = string
 }
+
+variable "TESTING" {
+  description = "The Platform API key."
+  type        = string
+}
