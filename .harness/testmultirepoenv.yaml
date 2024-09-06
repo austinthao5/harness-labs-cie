@@ -1,0 +1,8 @@
+environment:
+  name: test-multi-repo-env
+  identifier: testmultirepoenv
+  description: ""
+  tags: {}
+  type: PreProduction
+  orgIdentifier: CSE_Labs
+  projectIdentifier: CSE_Lab_Project
