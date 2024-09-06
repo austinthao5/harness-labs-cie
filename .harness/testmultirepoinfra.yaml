@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: test-multi-repo-infra
+  identifier: testmultirepoinfra
+  orgIdentifier: CSE_Labs
+  projectIdentifier: CSE_Lab_Project
+  environmentRef: testmultirepoenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: account.testeksconnector
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
