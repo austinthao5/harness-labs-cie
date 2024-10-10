@@ -13,14 +13,19 @@ provider "harness" {
   platform_api_key    = var.PAT
 }
 
-output "example_field" {
-  value = var.account_id
-}
+resource "harness_platform_environment" "someEnv" {
+  org_id = data.harness_platform_organization.org.id
+  project_id = data.harness_platform_project.project.id
 
-output "example_field2" {
-  value = var.PAT
-}
+  identifier = "terraformCreatedEnv"
+  name = "terraformCreatedEnv"
+  type = "PreProduction"
 
-output "example_field3" {
-  value = var.TESTING
+  git_details {
+    store_type = "REMOTE"
+    connector_ref = "account.accountharnesslabs"
+    repo_name = "harness-labs"
+    file_path = ".harness/terraformCreatedEnv.yaml"
+    branch = "main"
+  }
 }
