@@ -31,11 +31,5 @@ resource "harness_platform_environment" "someEnv" {
   name = "terraformCreatedEnv"
   type = "PreProduction"
 
-  git_details {
-    store_type = "REMOTE"
-    connector_ref = "account.accountharnesslabs"
-    repo_name = "harness-labs"
-    file_path = ".harness/terraformCreatedEnv.yaml"
-    branch = "main"
-  }
+
 }
