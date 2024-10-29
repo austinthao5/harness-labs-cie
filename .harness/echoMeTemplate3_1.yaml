@@ -16,6 +16,6 @@ template:
       source:
         type: Inline
         spec:
-          script: echo "Template 3 v1"
+          script: echo "Template 3 v1 test new branch"
       environmentVariables: []
       outputVariables: []
