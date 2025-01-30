@@ -37,3 +37,14 @@ resource "harness_platform_environment" "someEnv" {
 output "testOutput" {
   value       = harness_platform_environment.someEnv.name
 }
+
+output "clusters_discovered" {
+  value       = [
+        "test-euc1-blue",
+        "test-euc1-green",
+    ]
+}
+
+output "service_runtime_role_arn" {
+  value       = "arn:aws:iam::225285538696:role/test-euc1-awsnativeexample-v2"
+}
