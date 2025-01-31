@@ -14,7 +14,7 @@ USER root
 EXPOSE 80
 
 RUN echo "printing environment variables"
-RUN echo printenv
+RUN printenv
 
 RUN echo $MYENV
 
