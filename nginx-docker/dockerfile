@@ -16,6 +16,8 @@ FROM base AS dist
 COPY . .
 RUN ls -al
 
+RUN echo $MYENV
+
 # List files to debug
 RUN echo "TESTING IN STAGE 1"
 
