@@ -1,6 +1,7 @@
 # Use the official NGINX image as the base image
 FROM nginx:latest as base
 ARG MYENV
+ENV MYENV=$MYENV
 
 # Set the environment to production
 ENV NODE_ENV production
@@ -12,8 +13,12 @@ USER root
 # Expose port 80 to allow incoming traffic
 EXPOSE 80
 
+RUN echo "printing environment variables"
+RUN echo printenv
+
 RUN echo $MYENV
 
+RUN echo "After i echoed MYENV"
 # List files to debug
 RUN echo "TESTING IN STAGE 1"
 
