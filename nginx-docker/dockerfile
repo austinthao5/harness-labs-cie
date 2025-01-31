@@ -1,6 +1,12 @@
 # Use the official NGINX image as the base image
 FROM nginx:latest as base
 
+# Declare the build argument
+ARG MYENV
+
+# Optionally set the environment variable so it's available during runtime
+ENV MYENV=$MYENV
+
 # Set the environment to production
 ENV NODE_ENV production
 # Define the working directory
