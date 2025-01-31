@@ -11,11 +11,6 @@ USER root
 # Expose port 80 to allow incoming traffic
 EXPOSE 80
 
-# Stage 1: Build distribution
-FROM base AS dist
-COPY . .
-RUN ls -al
-
 RUN echo $MYENV
 
 # List files to debug
