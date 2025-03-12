@@ -27,8 +27,8 @@ resource "harness_platform_environment" "someEnv" {
   org_id = data.harness_platform_organization.org.id
   project_id = data.harness_platform_project.project.id
 
-  identifier = "terraformCreatedEnv3"
-  name = "terraformCreatedEnv3"
+  identifier = "terraformCreatedEnv4"
+  name = "terraformCreatedEnv4"
   type = "PreProduction"
 
 }
