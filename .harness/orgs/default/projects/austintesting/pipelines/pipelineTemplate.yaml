@@ -1,0 +1,10 @@
+pipeline:
+  name: pipelineTemplate
+  identifier: pipelineTemplate
+  tags: {}
+  template:
+    templateRef: pipelineTemplate
+    versionLabel: "1"
+    gitBranch: branch1
+  projectIdentifier: austintesting
+  orgIdentifier: default
