@@ -12,6 +12,15 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <!-- 👇 Added this section so Maven pulls dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <!-- This plugin builds a runnable JAR with dependencies included -->
