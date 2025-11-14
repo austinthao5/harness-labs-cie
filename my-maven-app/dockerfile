@@ -7,6 +7,7 @@ COPY pom.xml .
 COPY src ./src
 # Copy .mvn settings
 COPY .mvn ./ .mvn
+COPY /harness/.m2 /harness/.m2
 
 # Make sure Maven uses settings.xml and local repo
 RUN mvn clean package -s .mvn/settings.xml
