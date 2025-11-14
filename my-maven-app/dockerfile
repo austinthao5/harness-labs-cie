@@ -7,8 +7,7 @@ COPY pom.xml .
 COPY src ./src
 # Copy .mvn settings
 COPY .mvn ./ .mvn
-COPY /.m2 /harness/my-maven-app/.m2
-COPY /.m2 /root/.m2
+COPY /.m2 /harness/my-maven-app/.m2 # Copy .m2 build directory to docker environment for caching.
 
 # Make sure Maven uses settings.xml and local repo
 RUN mvn clean package -s .mvn/settings.xml
