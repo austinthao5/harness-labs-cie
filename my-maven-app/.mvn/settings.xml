@@ -1,3 +1,3 @@
 <settings>
-  <localRepository>/my-maven-app/.m2</localRepository>
+  <localRepository>/harness/my-maven-app/.m2</localRepository>
 </settings>
