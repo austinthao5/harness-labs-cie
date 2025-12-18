@@ -12,18 +12,26 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <!-- 👇 Added this section so Maven pulls dependencies -->
     <dependencies>
+        <!-- Existing dependency -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.14.0</version>
         </dependency>
+
+        <!-- ✅ JUnit 5 for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- This plugin builds a runnable JAR with dependencies included -->
+            <!-- Build runnable JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -46,6 +54,13 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- ✅ Needed so Maven runs JUnit 5 tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
             </plugin>
         </plugins>
     </build>
